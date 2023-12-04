@@ -11,6 +11,10 @@ if (!function_exists('msgpack_pack')) {
 
 class Emitter {
   private $uid = 'emitter';
+  private $redis;
+  private $prefix;
+  private $_rooms;
+  private $_flags;
 
   public function __construct($redis = FALSE, $opts = array()) {
     if (is_array($redis)) {
